@@ -60,6 +60,15 @@ class TestAccount(unittest.TestCase):
 
     self.new_account.delete_account()# Deleting a account object
     self.assertEqual(len(Account.account_list),1)
+  
+
+  def test_display_all_contacts(self):
+    '''
+    method that returns a list of all contacts saved
+    '''
+
+    self.assertEqual(Account.display_accounts(),Account.account_list)
+
 
 if __name__ == '__main__':
   unittest.main()

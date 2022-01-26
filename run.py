@@ -33,6 +33,20 @@ def display_accounts():
   '''
   return Account.display_accounts()
 
+def check_existing_accounts(username):
+  '''
+  Function that check if an account exists with that username and return a Boolean
+  '''
+  return Account.account_exist(username)
+
+
+def find_account(username):
+  '''
+  Function that finds a contact by number and returns the contact
+  '''
+  return Account.find_by_username(username)
+
+
 
 S = 12  # number of characters in the random password.  
 # call random.choices() string module to find the string in Uppercase + numeric data.  
@@ -47,7 +61,7 @@ def main():
   print('\n')
 
   while True:
-    print("Use these short codes : ca - create a new account, da - display accounts, fc -find an account, ex -exit the account list")
+    print("Use these short codes : ca - create a new account, da - display accounts, de -delete an account, ex -exit the account list")
 
     short_code = input().lower()
 
@@ -79,6 +93,16 @@ def main():
         print('\n')
         print("You dont seem to have any contacts saved yet")
         print('\n')
+    
+    elif short_code == 'de':
+      print("Enter the username of the account you want to delete")
+
+      search_username = input()
+      if check_existing_accounts(username):
+        search_account = find_account(username)
+        delete_account(search_account)
+      else:
+        print("That contact does not exist")
     
     elif short_code == 'ex':
       print("Bye .......")

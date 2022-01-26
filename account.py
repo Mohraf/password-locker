@@ -30,3 +30,36 @@ class Account:
     method that returns the account list
     '''
     return cls.account_list
+
+
+  @classmethod
+  def find_by_username(cls,username):
+    '''
+    Method that takes in a username and returns an account that matches that number.
+
+    Args:
+        username: username to search for
+    Returns :
+        Account that matches the username.
+    '''
+
+    for account in cls.account_list:
+      if account.user_name == username:
+        return account
+  
+
+  @classmethod
+  def account_exist(cls,username):
+    '''
+    Method that checks if an account exists from the account list.
+    Args:
+        username: Username to search if it exists
+    Returns :
+        Boolean: True or false depending if the account exists
+    '''
+    for account in cls.account_list:
+        if account.user_name == username:
+                return True
+
+    return False
+  

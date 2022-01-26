@@ -2,6 +2,9 @@
 
 from account import Account
 
+import string
+import random
+
 def create_account(uname,password):
   '''
   Function to create a new account credentials
@@ -31,6 +34,11 @@ def display_accounts():
   return Account.display_accounts()
 
 
+S = 12  # number of characters in the random password.  
+# call random.choices() string module to find the string in Uppercase + numeric data.  
+ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
+
+
 def main():
   print("Hello Welcome to your credentials list. What is your name?")
   user_name = input()
@@ -39,11 +47,11 @@ def main():
   print('\n')
 
   while True:
-    print("Use these short codes : cc - create a new account, dc - display accounts, fc -find an account, ex -exit the account list")
+    print("Use these short codes : ca - create a new account, da - display accounts, fc -find an account, ex -exit the account list")
 
     short_code = input().lower()
 
-    if short_code == 'cc':
+    if short_code == 'ca':
       print("New Account")
       print("-"*10)
 
@@ -58,6 +66,19 @@ def main():
       print(f"New Account {username} with password: {password} created")
       print('\n')
 
+    elif short_code == 'da':
+      if display_accounts():
+        print("Here is a list of all your accounts")
+        print("\n")
+
+        for account in display_accounts():
+          print(f"username: {account.user_name} | password: {account.password}")
+        
+        print('\n')
+      else:
+        print('\n')
+        print("You dont seem to have any contacts saved yet")
+        print('\n')
     
     elif short_code == 'ex':
       print("Bye .......")

@@ -20,3 +20,15 @@ class TestAccount(unittest.TestCase):
   #   '''
   #   Contact.contact_list = []
 
+
+  def test_init(self):
+    '''
+    test_init test case to test if the object is initialized properly
+    '''
+
+    self.assertEqual(self.new_account.user_name,"mohraf")
+    self.assertEqual(self.new_account.password,"Denime123")
+
+
+if __name__ == '__main__':
+  unittest.main()

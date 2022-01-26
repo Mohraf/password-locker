@@ -15,3 +15,10 @@ def save_account(account):
   Function to save account
   '''
   account.save_account()
+
+
+def delete_account(account):
+  '''
+  Function to delete account
+  '''
+  account.delete_account()
